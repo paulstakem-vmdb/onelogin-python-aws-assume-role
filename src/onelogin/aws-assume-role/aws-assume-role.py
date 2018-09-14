@@ -374,12 +374,12 @@ def main():
             ask_for_user_again = False
             ask_for_role_again = True
         elif i == 0:
-                # Capture OneLogin Account Details
-                if options.username:
-                    username_or_email = options.username
-                else:
-                    print("OneLogin Username: ")
-                    username_or_email = sys.stdin.readline().strip()
+            # Capture OneLogin Account Details
+            if options.username:
+                username_or_email = options.username
+            else:
+                print("OneLogin Username: ")
+                username_or_email = sys.stdin.readline().strip()
 
                 password = getpass.getpass("\nOneLogin Password: ")
 
@@ -476,7 +476,7 @@ def main():
             )
         except ClientError as err:
             if 'Token must be redeemed within 5 minutes of issuance' in err.message or \
-               'An error occurred (ExpiredTokenException) when calling the AssumeRoleWithSAML operation' in err.message: 
+               'An error occurred (ExpiredTokenException) when calling the AssumeRoleWithSAML operation' in err.message:
                 print(err.message)
                 print("Generating a new SAMLResponse with the data already provided....")
                 iterations.append(iterations[-1]+1)
